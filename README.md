@@ -1,5 +1,5 @@
 # node-conference
-Simple conference schedule management API written in Node.js.
+Simple conference scheduling API written in Node.js.
 
 ## Requisites
 
