@@ -1,5 +1,5 @@
 # node-conference
-Simple conference schedule management API written in Node.js
+Simple conference schedule management API written in Node.js.
 
 ## Tech stack
 
@@ -19,9 +19,15 @@ Runs available tests.
 ### `make run`
 Starts server.
 
-## Operations
+## Endpoints
 
-###### input
+#### `GET /healthcheck`
+Responds with status code `200` if the server is running.
+
+#### `POST /schedule`
+Given the provided talks, responds with a possible schedule for the conference.
+
+###### request
     {
         "data": [
             "Writing Fast Tests Against Enterprise Rails 60min",
@@ -45,7 +51,7 @@ Starts server.
             "User Interface CSS in Rails Apps 30min"
         ]
     }
-###### output
+###### response
     {
         "data": [
             {
