@@ -1,9 +1,9 @@
 # node-conference
 Simple conference schedule management API written in Node.js.
 
-## Tech stack
+## Requisites
 
-- [Node](https://nodejs.org/en/) 12.18.3 LTS
+- [Node](https://nodejs.org/en/)
 
 ## Commands
 
@@ -14,7 +14,7 @@ Install dependencies.
 Format source files with [Prettier](https://prettier.io/).
 
 ### `make test`                    
-Runs all available tests.
+Runs all available tests using [Jest](https://jestjs.io/).
 
 ### `make run`
 Starts the server application locally on port `8080`.
