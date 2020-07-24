@@ -1,0 +1,25 @@
+{
+  "name": "conference",
+  "version": "1.0.0",
+  "description": "Simple conference schedule management API written in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "format": "prettier --write --no-semi --trailing-comma es5 '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernandomachado90/node-conference.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fernandomachado90/node-conference/issues"
+  },
+  "homepage": "https://github.com/fernandomachado90/node-conference#readme",
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5"
+  }
+}
