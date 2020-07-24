@@ -14,10 +14,10 @@ Install dependencies.
 Format source files with [Prettier](https://prettier.io/).
 
 ### `make test`                    
-Runs available tests.
+Runs all available tests.
 
 ### `make run`
-Starts server.
+Starts the server application locally on port `8080`.
 
 ## Endpoints
 
