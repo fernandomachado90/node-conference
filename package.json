@@ -1,7 +1,7 @@
 {
   "name": "conference",
   "version": "1.0.0",
-  "description": "Simple conference schedule management API written in Node.js",
+  "description": "Simple conference scheduling API written in Node.js",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
