@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/fernandomachado90/node-conference.git"
   },
-  "author": "",
+  "author": "Fernando Machado",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fernandomachado90/node-conference/issues"
