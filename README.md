@@ -14,7 +14,7 @@ Install dependencies.
 Format source files with [Prettier](https://prettier.io/).
 
 ### `make test`                    
-Runs all available tests using [Jest](https://jestjs.io/).
+Runs all available tests using [Jest](https://jestjs.io/) and [Supertest](https://github.com/visionmedia/supertest).
 
 ### `make run`
 Starts the server application locally on port `3000`.
