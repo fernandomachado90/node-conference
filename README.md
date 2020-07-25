@@ -11,7 +11,7 @@ Simple conference scheduling API written in Node.js.
 Install dependencies.
 
 ### `make format`
-Format source files with [Prettier](https://prettier.io/).
+Formats source files with [Prettier](https://prettier.io/).
 
 ### `make test`                    
 Runs all available tests using [Jest](https://jestjs.io/) and [Supertest](https://github.com/visionmedia/supertest).
