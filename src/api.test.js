@@ -51,7 +51,7 @@ describe("POST /", () => {
       .post("/")
       .send(payload)
       .set("Accept", "application/json")
-      .expect('Content-Type', /json/)
+      .expect("Content-Type", /json/)
       .expect(200, payload, done)
   })
 })
