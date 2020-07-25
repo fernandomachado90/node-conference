@@ -3,6 +3,7 @@ const supertest = require("supertest")
 const api = require("./api")
 
 let server
+
 beforeAll(async () => {
   server = await api.startServer("localhost", "9999")
 })
@@ -11,18 +12,26 @@ afterAll(async () => {
   await server.close()
 })
 
-describe("unimplemented /endpoint", () => {
-  it("responds with 501 server error", (done) => {
+describe("reaches unimplemented /endpoint", () => {
+  it("should respond with 501 error", (done) => {
     supertest(server).get("/").expect(501, done)
   })
 })
 
-describe("POST /", () => {
-  it("responds with 500 server error when payload parsing fails", (done) => {
+describe("reaches POST /", () => {
+  it("should respond with 500 error when payload is not provided", (done) => {
     supertest(server).post("/").expect(500, done)
   })
 
-  it("responds with 200 success and a possible schedule", (done) => {
+  it("should respond with 500 error when payload cannot be parsed", (done) => {
+    const payload = {
+      unknown: "error",
+    }
+
+    supertest(server).post("/").send(payload).expect(500, done)
+  })
+
+  it("should respond with 200 success and a possible schedule", (done) => {
     const payload = {
       data: [
         "Writing Fast Tests Against Enterprise Rails 60min",

@@ -1,5 +1,7 @@
 const http = require("http")
 
+const parser = require("./parser")
+
 const api = {
   startServer: async (hostname, port) => {
     const server = http.createServer((req, res) => {
@@ -13,9 +15,9 @@ const api = {
       req.on("data", (chunk) => chunks.push(chunk))
       req.on("end", () => {
         const json = Buffer.concat(chunks).toString()
-        let input
+
         try {
-          input = JSON.parse(json)
+          input = parser.deserialize(json)
         } catch (err) {
           res.writeHead(500)
           res.end()
@@ -23,8 +25,7 @@ const api = {
         }
 
         res.writeHead(200, { "Content-Type": "application/json" })
-        const output = JSON.stringify(input)
-        res.end(output)
+        res.end(json)
       })
     })
 
