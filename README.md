@@ -17,14 +17,11 @@ Format source files with [Prettier](https://prettier.io/).
 Runs all available tests using [Jest](https://jestjs.io/).
 
 ### `make run`
-Starts the server application locally on port `8080`.
+Starts the server application locally on port `3000`.
 
 ## Endpoints
 
-#### `GET /healthcheck`
-Responds with status code `200` if the server is running.
-
-#### `POST /schedule`
+#### `POST /`
 Given the provided talks, responds with a possible schedule for the conference.
 
 ###### request

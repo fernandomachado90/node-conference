@@ -2,9 +2,9 @@
   "name": "conference",
   "version": "1.0.0",
   "description": "Simple conference scheduling API written in Node.js",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "test": "jest",
     "format": "prettier --write --no-semi --trailing-comma es5 '**/*.js'"
   },
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/fernandomachado90/node-conference#readme",
   "devDependencies": {
     "jest": "^26.1.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2"
   }
 }
