@@ -1,6 +1,6 @@
 const parser = require("./parser")
 
-describe("deserialize a talks json", () => {
+describe("deserialize talks json", () => {
   it("should deserialize a talk with a given duration", () => {
     const json = JSON.stringify({
       data: ["Writing Fast Tests Against Enterprise Rails 60min"],
