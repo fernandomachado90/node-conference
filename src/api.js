@@ -6,7 +6,7 @@ const scheduler = require("./scheduler")
 const api = {
   startServer: async (port) => {
     const server = http.createServer((req, res) => {
-      if (req.method !== "POS") {
+      if (req.method !== "POST") {
         res.writeHead(501)
         res.end()
         return
