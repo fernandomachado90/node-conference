@@ -28,7 +28,7 @@ palestra e outra.
 
 A arquitetura da aplicação está dividida em três camadas.
 - `api.js`: Responsável por criar e disponibilizar o **servidor** para ouvir requisições. Apenas métodos `POST` serão aceitos (um erro `501` é retornado para métodos não implementados). Este nível contem **testes de integração** para simular casos de uso reais da aplicação.
-- `parser.js`: Responsável por interpretar e converter o `body` das requisições para dados de **modelo de domínio** (e vice-versa).
+- `parser.js`: Responsável por interpretar e converter o `body` das requisições para o **modelo de domínio** (e vice-versa).
 - `scheduler.js`: Responsável por organizar a lista de `talks` recebidas em diferentes `tracks`, de acordo com as restrições definidas nas **regras de negócio**. O algoritmo proposto itera pela de lista de `talks`, tentando encaixar cada uma delas na `track` vigente que reserva intervalos fixos para almoço (12h-13h) e happy hour (17-18h). Se a palestra não couber na `track`, uma nova é criada e a iteração continua até que todas as `talks` tenham sido encaixadas. 
 
 ## Requisitos
