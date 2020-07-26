@@ -121,6 +121,6 @@ describe("reaches POST /", () => {
       .send(request)
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
-      .expect(500, response, done)
+      .expect(200, response, done)
   })
 })
