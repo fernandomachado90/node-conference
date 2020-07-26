@@ -1,28 +1,66 @@
 # node-conference
 Simple conference scheduling API written in Node.js.
 
-## Requisites
+## Gerenciamento de Palestras
+
+### Descrição
+
+Sua empresa está organizando um grande evento de programação, e recebeu muitas
+propostas de palestras para serem apresentadas. O problema é fazer todas elas
+encaixarem no tempo -- tem muitas possibilidades! Então você decidiu escrever um
+programa pra fazer isso pra você.
+
+Será um único dia de conferência, mas ocorrerão muitas trilhas simultaneamente. Cada
+trilha tem uma sessão de manhã e outra de tarde. Cada sessão pode conter muitas
+palestras.
+
+As sessões da manhã devem começar às 9 horas da manhã e terminar a tempo do almoço,
+que será servido às 12 (meio dia).
+
+As sessões da tarde devem começar à 1 da tarde e terminar a tempo do happy hour.
+
+O happy hour não pode começar antes das 4 da tarde, nem depois das 5 da tarde. O
+horário do happy hour deve ser o mesmo para todas as trilhas.
+
+Seu programa pode considerar que não haverá uma palestra com números no nome.
+
+A duração das palestras será dado em minutos ou com a string "lightning" indicando que ela
+durará 5 minutos.
+
+Os palestrantes serão muito pontuais, você não precisa colocar um intervalo entre uma
+palestra e outra.
+
+### Solução
+
+A arquitetura da aplicação está dividida em três camadas.
+- `api.js`: Responsável por criar e disponibilizar o **servidor** para ouvir requisições. Apenas métodos `POST` serão aceitos (um erro `501` é retornado para métodos não implementados). Este nível contem **testes de integração** para simular casos de uso reais da aplicação.
+- `parser.js`: Responsável por interpretar e converter o `body` das requisições para dados de **modelo de domínio** (e vice-versa).
+- `scheduler.js`: Responsável por organizar a lista de `talks` recebidas em diferentes `tracks`, de acordo com as restrições definidas nas **regras de negócio**. O algoritmo proposto faz uma única passagem pela de lista de `talks`, tentando encaixar cada uma delas na `track` vigente e respeitando os intervalos fixos para almoço (12h-13h) e happy hour (17-18h). Se a palestra não couber na `track`, uma nova é criada.
+
+## Requisitos
 
 - [Node](https://nodejs.org/en/)
 
-## Commands
+## Comandos
+
+Através do `Makefile` provido, você pode rodar os comandos para instalar, testar e rodar a aplicação localmente.
 
 ### `make setup`
-Installs dependencies.
+Instala dependências da aplicação.
 
 ### `make format`
-Formats source files with [Prettier](https://prettier.io/).
+Formata o código-fonte usando [Prettier](https://prettier.io/).
 
 ### `make test`                    
-Runs all available tests using [Jest](https://jestjs.io/) and [Supertest](https://github.com/visionmedia/supertest).
+Roda testes disponíveis usando [Jest](https://jestjs.io/) e [Supertest](https://github.com/visionmedia/supertest).
 
 ### `make run`
-Starts the server application locally on port `3000`.
+Inicia o servidor da aplicação na porta `3000`.
 
 ## Endpoints
 
 #### `POST /`
-Given the provided talks, responds with a possible schedule for the conference.
+Dada um conjunto de palestras, responde com uma organização possível para a conferência.
 
 ###### request
     {
@@ -86,32 +124,3 @@ Given the provided talks, responds with a possible schedule for the conference.
             }
         ]
     }
-
-## Problem
-
-### Gerenciamento de Palestras
-
-Sua empresa está organizando um grande evento de programação, e recebeu muitas
-propostas de palestras para serem apresentadas. O problema é fazer todas elas
-encaixarem no tempo -- tem muitas possibilidades! Então você decidiu escrever um
-programa pra fazer isso pra você.
-
-Será um único dia de conferência, mas ocorrerão muitas trilhas simultaneamente. Cada
-trilha tem uma sessão de manhã e outra de tarde. Cada sessão pode conter muitas
-palestras.
-
-As sessões da manhã devem começar às 9 horas da manhã e terminar a tempo do almoço,
-que será servido às 12 (meio dia).
-
-As sessões da tarde devem começar à 1 da tarde e terminar a tempo do happy hour.
-
-O happy hour não pode começar antes das 4 da tarde, nem depois das 5 da tarde. O
-horário do happy hour deve ser o mesmo para todas as trilhas.
-
-Seu programa pode considerar que não haverá uma palestra com números no nome.
-
-A duração das palestras será dado em minutos ou com a string "lightning" indicando que ela
-durará 5 minutos.
-
-Os palestrantes serão muito pontuais, você não precisa colocar um intervalo entre uma
-palestra e outra.
