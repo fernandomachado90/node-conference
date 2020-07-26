@@ -1,6 +1,7 @@
 const http = require("http")
 
 const parser = require("./parser")
+const scheduler = require("./scheduler")
 
 const api = {
   startServer: async (hostname, port) => {
@@ -17,7 +18,9 @@ const api = {
         const json = Buffer.concat(chunks).toString()
 
         try {
-          input = parser.deserialize(json)
+          const talks = parser.deserialize(json)
+          const schedule = scheduler.organize(talks)
+          //TODO add serializer
         } catch (err) {
           res.writeHead(500)
           res.end()

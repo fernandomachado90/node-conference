@@ -6,13 +6,13 @@ const scheduler = {
     for (let t = 0; t < talks.length; t++) {
       const talk = talks[t]
 
-      let start = currentTrack.nextSlot
-      if (isLunchBreak(start, talk.duration)) {
-        start = pushBreak(currentTrack, lunchSlot)
+      let talkStart = currentTrack.nextSlot
+      if (isLunchBreak(talkStart, talk.duration)) {
+        talkStart = pushBreak(currentTrack, lunchSlot)
       }
 
-      if (isCoffeeBreak(start, talk.duration)) {
-        start = pushBreak(currentTrack, coffeeSlot)
+      if (isCoffeeBreak(talkStart, talk.duration)) {
+        talkStart = pushBreak(currentTrack, coffeeSlot)
         currentTrack = pushTrack(tracks)
       }
 
@@ -25,18 +25,19 @@ const scheduler = {
 }
 
 const pushTrack = (tracks) => {
-  const length = tracks.push({
+  const id = tracks.length + 1
+  tracks.push({
+    title: "Track " + id,
     talks: [],
     nextSlot: day.start,
   })
-  return tracks[length - 1]
+  return tracks[id - 1]
 }
 
 const pushTalk = (track, talk) => {
   track.talks.push({
     title: talk.title,
     start: track.nextSlot,
-    startHELPER: Math.floor(track.nextSlot / 60) + ":" + (track.nextSlot % 60),
     duration: talk.duration,
   })
   track.nextSlot += talk.duration
@@ -47,7 +48,6 @@ const pushBreak = (track, slot) => {
   track.talks.push({
     title: slot.title,
     start: slot.start,
-    startHELPER: Math.floor(slot.start / 60) + ":" + (slot.start % 60),
     duration: slot.duration,
   })
   track.nextSlot = slot.start + slot.duration

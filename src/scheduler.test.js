@@ -7,6 +7,7 @@ describe("schedule talks", () => {
     const tracks = scheduler.organize(talks)
 
     expect(tracks.length).toBe(1)
+    expect(tracks[0].title).toBe("Track 1")
     expect(tracks[0].talks).toMatchObject([
       { title: "Lunch", start: 720 },
       { title: "Networking Event", start: 1020 },
@@ -97,6 +98,35 @@ describe("schedule talks", () => {
 
     expect(tracks.length).toBe(2)
     expect(tracks[0].talks.length).toBe(12)
+    expect(tracks[0].title).toBe("Track 1")
+    expect(tracks[0].talks).toMatchObject([
+      { title: "Writing Fast Tests Against Enterprise Rails", start: 540 },
+      { title: "Overdoing it in Python", start: 600 },
+      { title: "Lua for the Masses", start: 645 },
+      { title: "Ruby Errors from Mismatched Gem Versions", start: 675 },
+      { title: "Lunch", start: 720 },
+      { title: "Common Ruby Errors", start: 780 },
+      { title: "Rails for Python Developers", start: 825 },
+      { title: "Communicating Over Distance", start: 830 },
+      { title: "Accounting-Driven Development", start: 890 },
+      { title: "Woah", start: 935 },
+      { title: "Sit Down and Write", start: 965 },
+      { title: "Networking Event", start: 1020 },
+    ])
     expect(tracks[1].talks.length).toBe(11)
+    expect(tracks[1].title).toBe("Track 2")
+    expect(tracks[1].talks).toMatchObject([
+      { title: "Pair Programming vs Noise", start: 540 },
+      { title: "Rails Magic", start: 585 },
+      { title: "Ruby on Rails: Why We Should Move On", start: 645 },
+      { title: "Lunch", start: 720 },
+      { title: "Clojure Ate Scala (on my project)", start: 780 },
+      { title: "Programming in the Boondocks of Seattle", start: 825 },
+      { title: "Ruby vs. Clojure for Back-End Development", start: 855 },
+      { title: "Ruby on Rails Legacy App Maintenance", start: 885 },
+      { title: "A World Without HackerNews", start: 945 },
+      { title: "User Interface CSS in Rails Apps", start: 975 },
+      { title: "Networking Event", start: 1020 },
+    ])
   })
 })
