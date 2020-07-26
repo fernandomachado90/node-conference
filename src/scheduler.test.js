@@ -44,31 +44,31 @@ describe("schedule talks", () => {
     expect(tracks[0].title).toBe("Track 1")
     expect(tracks[0].talks).toMatchObject([
       { title: "Writing Fast Tests Against Enterprise Rails", start: 540, duration: 60 },
-      { title: "Overdoing it in Python", start: 600, duration: 60 },
-      { title: "Lua for the Masses", start: 645, duration: 60 },
-      { title: "Ruby Errors from Mismatched Gem Versions", start: 675, duration: 60 },
+      { title: "Overdoing it in Python", start: 600, duration: 45 },
+      { title: "Lua for the Masses", start: 645, duration: 30 },
+      { title: "Ruby Errors from Mismatched Gem Versions", start: 675, duration: 45 },
       { title: "Lunch", start: 720, duration: 60 },
-      { title: "Common Ruby Errors", start: 780, duration: 60 },
-      { title: "Rails for Python Developers", start: 825, duration: 60 },
+      { title: "Common Ruby Errors", start: 780, duration: 45 },
+      { title: "Rails for Python Developers", start: 825, duration: 5 },
       { title: "Communicating Over Distance", start: 830, duration: 60 },
-      { title: "Accounting-Driven Development", start: 890, duration: 60 },
-      { title: "Woah", start: 935, duration: 60 },
-      { title: "Sit Down and Write", start: 965, duration: 60 },
+      { title: "Accounting-Driven Development", start: 890, duration: 45 },
+      { title: "Woah", start: 935, duration: 30 },
+      { title: "Sit Down and Write", start: 965, duration: 30 },
       { title: "Networking Event", start: 1020, duration: 60 },
     ])
     expect(tracks[1].talks.length).toBe(11)
     expect(tracks[1].title).toBe("Track 2")
     expect(tracks[1].talks).toMatchObject([
-      { title: "Pair Programming vs Noise", start: 540, duration: 60 },
+      { title: "Pair Programming vs Noise", start: 540, duration: 45 },
       { title: "Rails Magic", start: 585, duration: 60 },
       { title: "Ruby on Rails: Why We Should Move On", start: 645, duration: 60 },
       { title: "Lunch", start: 720, duration: 60 },
-      { title: "Clojure Ate Scala (on my project)", start: 780, duration: 60 },
-      { title: "Programming in the Boondocks of Seattle", start: 825, duration: 60 },
-      { title: "Ruby vs. Clojure for Back-End Development", start: 855, duration: 60 },
+      { title: "Clojure Ate Scala (on my project)", start: 780, duration: 45 },
+      { title: "Programming in the Boondocks of Seattle", start: 825, duration: 30 },
+      { title: "Ruby vs. Clojure for Back-End Development", start: 855, duration: 30 },
       { title: "Ruby on Rails Legacy App Maintenance", start: 885, duration: 60 },
-      { title: "A World Without HackerNews", start: 945, duration: 60 },
-      { title: "User Interface CSS in Rails Apps", start: 975, duration: 60 },
+      { title: "A World Without HackerNews", start: 945, duration: 30 },
+      { title: "User Interface CSS in Rails Apps", start: 975, duration: 30 },
       { title: "Networking Event", start: 1020, duration: 60 },
     ])
   })
