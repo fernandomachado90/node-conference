@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "jest",
-    "format": "prettier --write --no-semi --trailing-comma es5 '**/*.js'"
+    "format": "prettier --write --no-semi --trailing-comma es5 --print-width 120 '**/*.js'"
   },
   "repository": {
     "type": "git",

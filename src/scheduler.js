@@ -56,10 +56,8 @@ const pushBreak = (track, slot) => {
 
 const isLunchBreak = (start, duration) => {
   return (
-    (lunchSlot.start <= start &&
-      start < lunchSlot.start + lunchSlot.duration) ||
-    (lunchSlot.start < start + duration &&
-      start + duration < lunchSlot.start + lunchSlot.duration)
+    (lunchSlot.start <= start && start < lunchSlot.start + lunchSlot.duration) ||
+    (lunchSlot.start < start + duration && start + duration < lunchSlot.start + lunchSlot.duration)
   )
 }
 

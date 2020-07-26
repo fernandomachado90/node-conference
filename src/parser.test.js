@@ -1,6 +1,6 @@
 const parser = require("./parser")
 
-describe("deserialize talks json", () => {
+describe("deserialize talks from json", () => {
   it("should deserialize a talk with a given duration", () => {
     const json = JSON.stringify({
       data: ["Writing Fast Tests Against Enterprise Rails 60min"],
@@ -24,4 +24,8 @@ describe("deserialize talks json", () => {
     expect(talks[0].title).toBe("Rails for Python Developers")
     expect(talks[0].duration).toBe(5)
   })
+})
+
+describe("serialize tracks to json", () => {
+  it("should serialize tracks with a given duration", () => {})
 })
