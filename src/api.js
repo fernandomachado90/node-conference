@@ -4,7 +4,7 @@ const parser = require("./parser")
 const scheduler = require("./scheduler")
 
 const api = {
-  startServer: async (hostname, port) => {
+  startServer: async (port) => {
     const server = http.createServer((req, res) => {
       if (req.method !== "POST") {
         res.writeHead(501)
@@ -30,8 +30,8 @@ const api = {
       })
     })
 
-    await server.listen(port, hostname)
-    console.log(`Server running at http://${hostname}:${port}/`)
+    await server.listen(port)
+    console.log(`Server running at port ${port}.`)
 
     return server
   },

@@ -5,7 +5,7 @@ const api = require("./api")
 let server
 
 beforeAll(async () => {
-  server = await api.startServer("localhost", "9999")
+  server = await api.startServer(9999)
 })
 
 afterAll(async () => {
