@@ -45,7 +45,7 @@ Given the provided talks, responds with a possible schedule for the conference.
             "Ruby vs. Clojure for Back-End Development 30min",
             "Ruby on Rails Legacy App Maintenance 60min",
             "A World Without HackerNews 30min",
-            "User Interface CSS in Rails Apps 30min"
+            "User Interface CSS in Rails Apps 45min"
         ]
     }
 ###### response
@@ -80,7 +80,7 @@ Given the provided talks, responds with a possible schedule for the conference.
                     "02:15PM Ruby vs. Clojure for Back-End Development 30min",
                     "02:45PM Ruby on Rails Legacy App Maintenance 60min",
                     "03:45PM A World Without HackerNews 30min",
-                    "04:15PM User Interface CSS in Rails Apps 30min",
+                    "04:15PM User Interface CSS in Rails Apps 45min",
                     "05:00PM Networking Event",
                 ]
             }

@@ -35,7 +35,7 @@ describe("schedule talks", () => {
       { title: "Ruby vs. Clojure for Back-End Development", duration: 30 },
       { title: "Ruby on Rails Legacy App Maintenance", duration: 60 },
       { title: "A World Without HackerNews", duration: 30 },
-      { title: "User Interface CSS in Rails Apps", duration: 30 },
+      { title: "User Interface CSS in Rails Apps", duration: 45 },
     ]
 
     const tracks = scheduler.organize(talks)
@@ -69,7 +69,7 @@ describe("schedule talks", () => {
       { title: "Ruby vs. Clojure for Back-End Development", start: 855, duration: 30 },
       { title: "Ruby on Rails Legacy App Maintenance", start: 885, duration: 60 },
       { title: "A World Without HackerNews", start: 945, duration: 30 },
-      { title: "User Interface CSS in Rails Apps", start: 975, duration: 30 },
+      { title: "User Interface CSS in Rails Apps", start: 975, duration: 45 },
       { title: "Networking Event", start: 1020 },
     ])
   })
