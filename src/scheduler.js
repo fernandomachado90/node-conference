@@ -48,7 +48,6 @@ const pushBreak = (track, slot) => {
   track.talks.push({
     title: slot.title,
     start: slot.start,
-    duration: slot.duration,
   })
   track.nextSlot = slot.start + slot.duration
   return track.nextSlot

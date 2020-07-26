@@ -15,20 +15,18 @@ const api = {
       const chunks = []
       req.on("data", (chunk) => chunks.push(chunk))
       req.on("end", () => {
-        const json = Buffer.concat(chunks).toString()
+        const request = Buffer.concat(chunks).toString()
 
         try {
-          const talks = parser.deserialize(json)
-          const schedule = scheduler.organize(talks)
-          //TODO add serializer
+          const talks = parser.deserialize(request)
+          const tracks = scheduler.organize(talks)
+          const response = parser.serialize(tracks)
+          res.writeHead(200, { "Content-Type": "application/json" })
+          res.end(response)
         } catch (err) {
           res.writeHead(500)
           res.end()
-          return
         }
-
-        res.writeHead(200, { "Content-Type": "application/json" })
-        res.end(json)
       })
     })
 
