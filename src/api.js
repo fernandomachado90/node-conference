@@ -15,9 +15,8 @@ const api = {
       const chunks = []
       req.on("data", (chunk) => chunks.push(chunk))
       req.on("end", () => {
-        const request = Buffer.concat(chunks).toString()
-
         try {
+          const request = Buffer.concat(chunks).toString()
           const talks = parser.deserialize(request)
           const tracks = scheduler.organize(talks)
           const response = parser.serialize(tracks)
