@@ -8,7 +8,7 @@ const parser = {
       const duration = talk.slice(separator + 1)
       return {
         title: title,
-        duration: duration == lightning.label ? lightning.duration : parseInt(duration),
+        duration: parseDuration(duration),
       }
     })
 
@@ -30,6 +30,13 @@ const parser = {
 
     return JSON.stringify({ data: data })
   },
+}
+
+const parseDuration = (str) => {
+  if (str == lightning.label) {
+    return lightning.duration
+  }
+  return parseInt(str)
 }
 
 const formatTimestamp = (mins) => {
