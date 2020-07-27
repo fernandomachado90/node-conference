@@ -27,12 +27,9 @@ palestra e outra.
 ### Solução
 
 A arquitetura da aplicação está dividida em três camadas.
-- **`api.js`**: Responsável por disponibilizar a **interface** de acesso à aplicação em uma API que aceita somente método `POST`. Um erro `501` é retornado para métodos não implementados.
-- **`api.test.js`**: Testes de **integração** que acessam o servidor da aplicação.
-- **`parser.js`**: Responsável por parsear o `body` das requisições e construir objetos que refletem as **entidade de domínio** (e vice-versa).
-- **`parser.test.js`**: Testes **unitários** de serialização e desserialização de dados.
-- **`scheduler.js`**: Responsável por organizar a lista de `talks` em diferentes `tracks`, de acordo com as restrições definidas nas **regras de negócio**. O algoritmo proposto itera pela de lista de `talks` e as vai encaixando sequencialmente na mesma `track`, respeitando os intervalos fixos reservados para o almoço e happy hour. Se a palestra não couber na `track` atual, uma nova é criada e a iteração continua até que todas tenham sido encaixadas.
-- **`scheduler.test.js`**: Testes **unitários** da lógica core da solução.
+- **`api.js`**: Responsável por disponibilizar a **interface** de acesso à aplicação em uma API que aceita somente método `POST`. Um erro `501` é retornado para métodos não implementados. **`api.test.js`** contém testes de **integração** que acessam o servidor da aplicação.
+- **`parser.js`**: Responsável por parsear o `body` das requisições e construir objetos que refletem as **entidade de domínio** (e vice-versa). **`parser.test.js`** contém testes **unitários** de serialização e desserialização de dados.
+- **`scheduler.js`**: Responsável por organizar a lista de `talks` em diferentes `tracks`, de acordo com as restrições definidas nas **regras de negócio**. O algoritmo proposto itera pela de lista de `talks` e as vai encaixando sequencialmente na mesma `track`, respeitando os intervalos fixos reservados para o almoço e happy hour. Se a palestra não couber na `track` atual, uma nova é criada e a iteração continua até que todas tenham sido encaixadas. **`scheduler.test.js`** contém os testes **unitários** da lógica core da solução.
  
 ### Integração e Entrega
 
