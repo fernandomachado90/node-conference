@@ -7,11 +7,11 @@ const scheduler = {
       const talk = talks[t]
 
       let talkStart = currentTrack.nextSlot
-      if (isLunchBreak(talkStart, talk.duration)) {
+      if (isLunchBreak(talkStart, talkStart + talk.duration)) {
         talkStart = pushBreak(currentTrack, lunchSlot)
       }
 
-      if (isCoffeeBreak(talkStart, talk.duration)) {
+      if (isCoffeeBreak(talkStart, talkStart + talk.duration)) {
         talkStart = pushBreak(currentTrack, coffeeSlot)
         currentTrack = pushTrack(tracks)
       }
@@ -53,15 +53,15 @@ const pushBreak = (track, slot) => {
   return track.nextSlot
 }
 
-const isLunchBreak = (start, duration) => {
+const isLunchBreak = (start, end) => {
   return (
     (lunchSlot.start <= start && start < lunchSlot.start + lunchSlot.duration) ||
-    (lunchSlot.start < start + duration && start + duration < lunchSlot.start + lunchSlot.duration)
+    (lunchSlot.start < end && end < lunchSlot.start + lunchSlot.duration)
   )
 }
 
-const isCoffeeBreak = (start, duration) => {
-  return coffeeSlot.start <= start || coffeeSlot.start < start + duration
+const isCoffeeBreak = (start, end) => {
+  return coffeeSlot.start <= start || coffeeSlot.start < end
 }
 
 const addMissingBreaks = (track) => {
