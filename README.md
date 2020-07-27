@@ -58,7 +58,7 @@ Inicia o servidor da aplicação na porta `3000`.
 ## Endpoints
 
 #### `POST /`
-Dada um conjunto de palestras, responde com uma organização possível para a conferência.
+Dado um conjunto de palestras, responde com uma organização possível para a conferência.
 
 ###### request
     {
